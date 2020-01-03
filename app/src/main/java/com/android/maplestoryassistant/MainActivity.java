@@ -20,8 +20,16 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
+    TextView currentTimeTextView;
     TimePicker alarmTimePicker;
     Button applyButton, cancelButton;
 
@@ -159,5 +167,35 @@ public class MainActivity extends AppCompatActivity {
 //                    PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
 //                    PackageManager.DONT_KILL_APP);
 //        }
+
+        currentTimeTextView = findViewById(R.id.CurrentTimeTextView);
+
+        Thread currentTimeThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    while (!Thread.currentThread().isInterrupted()) {
+                        Thread.sleep(1000);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                updateCurrentTime();
+                            }
+                        });
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        currentTimeThread.start();
+    }
+
+    private void updateCurrentTime() {
+        Calendar calendar = Calendar.getInstance();
+
+        String currentTime = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.getDefault()).format(calendar.getTime());
+        currentTimeTextView.setText(currentTime);
     }
 }
