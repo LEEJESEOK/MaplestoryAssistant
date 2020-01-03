@@ -61,8 +61,8 @@ public class AlarmReceiver extends BroadcastReceiver {
                 .setDefaults(NotificationCompat.DEFAULT_ALL)
                 .setWhen(System.currentTimeMillis())
                 .setTicker("{Time to watch some cool stuff!}")
-                .setContentTitle("상태바 드래그시 보이는 타이틀")
-                .setContentText("여름물방울(루나)님의 타임리스 문라이트 1개가 999,999메소에 판매되었습니다. 게임에 접속해 확인해주세요")
+                .setContentTitle("경뿌 (" + "n" + "/ 4)")
+                .setContentText("12/42" + "분 34채널 우르스")
                 .setContentInfo("INFO")
                 .setContentIntent(pendingIntent);
 
