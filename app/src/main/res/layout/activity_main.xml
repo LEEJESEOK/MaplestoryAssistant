@@ -10,7 +10,8 @@
     <TextView
         android:id="@+id/CurrentTimeTextView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textSize="24sp" />
 
     <TimePicker
         android:id="@+id/AlarmTimePicker"
@@ -26,12 +27,14 @@
 
         <Button
             android:id="@+id/ApplyButton"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/apply" />
 
         <Button
             android:id="@+id/CancelButton"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/cancel" />

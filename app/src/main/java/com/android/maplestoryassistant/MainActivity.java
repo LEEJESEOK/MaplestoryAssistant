@@ -10,6 +10,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -19,13 +20,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.Locale;
-import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,6 +32,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        currentTimeTextView = findViewById(R.id.CurrentTimeTextView);
+        updateCurrentTime();
+
+        Thread currentTimeThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    while (!Thread.currentThread().isInterrupted()) {
+                        Thread.sleep(1000);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                updateCurrentTime();
+                            }
+                        });
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        currentTimeThread.start();
 
         alarmTimePicker = findViewById(R.id.AlarmTimePicker);
         alarmTimePicker.setIs24HourView(true);
@@ -167,29 +184,6 @@ public class MainActivity extends AppCompatActivity {
 //                    PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
 //                    PackageManager.DONT_KILL_APP);
 //        }
-
-        currentTimeTextView = findViewById(R.id.CurrentTimeTextView);
-
-        Thread currentTimeThread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    while (!Thread.currentThread().isInterrupted()) {
-                        Thread.sleep(1000);
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                updateCurrentTime();
-                            }
-                        });
-                    }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-
-        currentTimeThread.start();
     }
 
     private void updateCurrentTime() {
