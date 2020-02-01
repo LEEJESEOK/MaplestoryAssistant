@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="channel">
+        <item>1채널</item>
+        <item>20세 이상</item>
+        <item>2채널</item>
+        <item>3채널</item>
+        <item>4채널</item>
+        <item>5채널</item>
+        <item>6채널</item>
+        <item>7채널</item>
+        <item>8채널</item>
+        <item>9채널</item>
+        <item>10채널</item>
+        <item>11채널</item>
+        <item>12채널</item>
+        <item>13채널</item>
+        <item>14채널</item>
+        <item>15채널</item>
+        <item>16채널</item>
+        <item>17채널</item>
+        <item>18채널</item>
+        <item>19채널</item>
+        <item>20채널</item>
+        <item>21채널</item>
+        <item>22채널</item>
+        <item>23채널</item>
+        <item>24채널</item>
+        <item>25채널</item>
+        <item>26채널</item>
+        <item>27채널</item>
+        <item>28채널</item>
+        <item>29채널</item>
+        <item>30채널</item>
+        <item>31채널</item>
+        <item>32채널</item>
+        <item>33채널</item>
+        <item>34채널</item>
+        <item>35채널</item>
+        <item>36채널</item>
+        <item>37채널</item>
+        <item>38채널</item>
+        <item>39채널</item>
+    </string-array>
+</resources>
