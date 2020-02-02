@@ -7,30 +7,57 @@
     android:padding="8dp"
     tools:context=".MainActivity">
 
-
-    <RadioGroup
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="8dp">
 
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:text="15분" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="43dp"
-            android:text="30분" />
-
-        <RadioButton
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1시간" />
+            android:layout_gravity="center">
 
-    </RadioGroup>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="경험치 쿠폰 : "
+                android:textSize="16sp" />
 
+        </LinearLayout>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/TimeNoneRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="사용안함" />
+
+            <RadioButton
+                android:id="@+id/Time15mRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:text="15분" />
+
+            <RadioButton
+                android:id="@+id/Time30mRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="43dp"
+                android:text="30분" />
+
+            <RadioButton
+                android:id="@+id/Time1HRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1시간" />
+
+        </RadioGroup>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -39,7 +66,7 @@
         android:padding="8dp">
 
         <TimePicker
-            android:id="@+id/alarmTimePicker"
+            android:id="@+id/AlarmTimePicker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:timePickerMode="spinner" />
@@ -48,52 +75,58 @@
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="채널 : " />
+            android:text="채널 : "
+            android:textSize="16sp" />
 
-        <TextView
+        <Spinner
+            android:id="@+id/ChannelSpinner"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="드롭다운" />
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp">
 
         <RadioGroup
+            android:id="@+id/MapRadioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:orientation="horizontal">
 
             <RadioButton
+                android:id="@+id/UrusRadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
                 android:text="우르스" />
 
             <RadioButton
+                android:id="@+id/EasyCygnusRadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="이지 시그너스" />
 
             <RadioButton
+                android:id="@+id/MeisterVillRadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="마이스터 빌" />
 
             <RadioButton
+                android:id="@+id/OtherMapRadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="직접입력" />
@@ -101,19 +134,24 @@
         </RadioGroup>
 
         <LinearLayout
+            android:id="@+id/OtherMapLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:padding="8dp">
+            android:padding="8dp"
+            android:visibility="gone">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="위치 : " />
+                android:text="위치 : "
+                android:textSize="14sp" />
 
-            <TextView
+            <EditText
+                android:id="@+id/OtherMapEditText"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:hint="직접입력"
+                android:inputType="text" />
 
         </LinearLayout>
 
@@ -127,12 +165,14 @@
         android:padding="8dp">
 
         <Button
+            android:id="@+id/StartButton"
             style="?android:borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="시작" />
 
         <Button
+            android:id="@+id/CancelButton"
             style="?android:borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
